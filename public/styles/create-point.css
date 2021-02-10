@@ -1,0 +1,164 @@
+#page-create-point{
+    width: 90%;                                                 /* largura normal 90px*/
+    max-width: 1100px;                                          /* largura maxima mesmo se passar de 1100px*/
+    margin: 0 auto;                                             /* alinhamento de caixa (pelo lado de fora da caixa) - em cima e em baixo seja 0 e laterais automaticas */
+}
+
+#page-create-point header{
+    margin-top: 48px;                                           /* espaço margem de cima - para nao colar no topo do navegador */
+    display: flex;
+    justify-content: space-between;                             /* coloca espaços entre elementos */
+    align-items: center;                                        /* posicionar elementos ao centro */
+}
+
+#page-create-point header a{
+    color: var(--title-color);                                  /* variavel no CSS */
+    font-weight: bold;                                          /* peso na fonte - negrito */
+    display: flex;                                              /* alinha um ao lado do outro */  
+    align-items: center;                                        /* alinha elementos ao centro */
+}
+
+#page-create-point header a span{
+    margin-right: 16px;                                         /* espaço do proximo elemento */
+    background-image: url('../assets/arrow-left.svg');
+    display: flex;                                              /* span precisa ser do tipo display: flex ara aparecer */
+    width: 24px;                                                /* span precisa ter width para aparecer */
+    height: 24px;                                               /* span precisa ter height para aparecer */
+    
+}
+
+form{
+    background-color: white;
+    margin: 80px auto;                         /* alinhamento de caixa (pelo lado de fora da caixa) - em cima e em baixo seja 80px e laterais automaticas */
+    padding: 64px;                          /*preenchimento interno */
+    border-radius: 8px;                     /* borda radius */
+    max-width: 730px;                       /* largura máxima */
+    
+}
+
+form h1{
+    font-size: 36px;
+}
+
+form fieldset{
+    margin-top: 64px;
+    border: 0;
+}
+
+form legend{
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 14px;
+}
+
+form legend span{
+    color: var(--title-color);
+}
+
+form legend h2{
+    font-size: 24px;
+}
+
+form .field{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+
+form .field-group{
+    display: flex;
+}
+
+form input,form select{
+    background-color: #f0f0f5;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    /*outline: none;*/                              /* tiraria foco do campo */
+}
+
+form select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+form label{
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+/* essa configuração mexemos nas propriedades do segundo field */
+form .field-group .field + .field{
+    margin-left: 24px;
+}
+
+/* propriedades do botao */
+form button{
+    width: 260px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    margin-top: 40px;
+    transition: background-color 400ms;
+}
+
+/* quando passar o mouse em cima */
+form button:hover{
+    background-color: #2fb86e;
+}
+
+/* lista dos itens de coleta - fundo dos <li> */
+.items-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;             /* divide em 3 colunas com espaco entre elas automaticamente */
+    gap: 16px;                                      /* espaço entre as colunas */
+}
+
+.items-grid li{
+    background-color: #f5f5f5;
+    list-style: none;                               /* tira as bolinhas da lista */
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+    height: 180px;                                  /* altura de cada <li> */
+    padding: 32px 24px 16px;                        /* topo laterais embaixo;*/
+    display: flex;                                  /* alinha na mesma altura horizontamente */
+    flex-direction: column;                         
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;                             /* alinha os textos ao centro */
+    cursor: pointer;                                /* transforma a ponta do mouse na maozinha */
+
+}
+
+/* trabalha alterando as propriedades do span - cada tipo de coleta*/
+.items-grid li span{
+    margin-top: 12px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: var(--title-color);
+}
+
+
+/* quando clicar em algum item para coletar, muda a cor do fundo e add borda para dar enfase */
+.items-grid li.selected {
+    background: #e1faec;
+    border: 2px solid #34cb79;
+}
+
+/* tira evento do clique do mouse - se clicar em cima nao acontece nada */
+.items-grid li img, .items-grid li span{
+    pointer-events: none;
+}
